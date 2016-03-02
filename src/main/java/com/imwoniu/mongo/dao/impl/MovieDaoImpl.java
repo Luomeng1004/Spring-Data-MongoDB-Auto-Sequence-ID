@@ -4,6 +4,7 @@ import com.imwoniu.mongo.dao.MovieDao;
 import com.imwoniu.mongo.dao.SequenceDao;
 import com.imwoniu.mongo.model.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -21,7 +22,7 @@ public class MovieDaoImpl implements MovieDao {
     private SequenceDao sequenceDao;
 
     @Autowired
-    private MongoTemplate mongoTemplate;
+    private MongoOperations mongoOperations;
 
     @Override
     public void save(String name, String type) {
@@ -38,7 +39,7 @@ public class MovieDaoImpl implements MovieDao {
         movie.setTypeName(type);
         movie.setDatetime(new Date());
 
-        mongoTemplate.save(movie, COLLECTION_NAME);
+        mongoOperations.save(movie, COLLECTION_NAME);
 
     }
 }

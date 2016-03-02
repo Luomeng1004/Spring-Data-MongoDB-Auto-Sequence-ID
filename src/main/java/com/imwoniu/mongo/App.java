@@ -24,10 +24,10 @@ public class App {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
         MovieDao dao = (MovieDao) ctx.getBean("movieDaoImpl");
         try {
-            dao.save("疑犯追踪", "美剧");
-            dao.save("甄嬛传", "国产电视剧");
-            dao.save("老友记", "美剧");
-            dao.save("Prison Break", "最爱");
+            dao.save("AAA", "美剧");
+            dao.save("BBB", "国产电视剧");
+            dao.save("C", "美剧");
+            dao.save("DDDD", "最爱");
         } catch (Exception e) {
             e.printStackTrace();
         }
